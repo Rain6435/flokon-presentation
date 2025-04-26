@@ -11,16 +11,26 @@ export const RevenueProjectionChart: React.FC = () => {
   ];
   
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="year" />
-        <YAxis tickFormatter={(value) => `${value}M$`} />
-        <Tooltip formatter={(value) => `${value}M$`} />
-        <Legend />
-        <Bar dataKey="private" name="Secteur privé" stackId="a" fill="#10b981" />
-        <Bar dataKey="municipal" name="Secteur municipal" stackId="a" fill="#f59e0b" />
-      </BarChart>
-    </ResponsiveContainer>
+    <div className="bg-white p-6 rounded-xl shadow-lg">
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+          <XAxis dataKey="year" stroke="#666" />
+          <YAxis tickFormatter={(value) => `${value}M$`} stroke="#666" />
+          <Tooltip 
+            formatter={(value) => `${value}M$`}
+            contentStyle={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              borderRadius: '8px',
+              border: '1px solid #e0e0e0',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            }}
+          />
+          <Legend />
+          <Bar dataKey="private" name="Secteur privé" stackId="a" fill="#10b981" />
+          <Bar dataKey="municipal" name="Secteur municipal" stackId="a" fill="#f59e0b" />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 };

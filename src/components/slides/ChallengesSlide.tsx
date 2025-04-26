@@ -3,9 +3,11 @@ import { AlertTriangle, Building2, Users, TrendingUp } from 'lucide-react';
 import { ChallengeCard } from '../cards/ChallengeCard';
 
 export const ChallengesSlide: React.FC = () => (
-  <div>
-    <h2 className="text-3xl font-bold mb-6">Les défis actuels de la gestion de la neige - Cas réels</h2>
-    <div className="grid grid-cols-2 gap-8">
+  <div className="flex flex-col items-center justify-center h-full w-full">
+    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+      Les défis actuels de la gestion de la neige - Cas réels
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
       <ChallengeCard 
         title="Secteur privé"
         items={[

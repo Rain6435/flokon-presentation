@@ -3,9 +3,11 @@ import { Cloud, Lock, Network } from 'lucide-react';
 import { TechCard } from '../cards/TechCard';
 
 export const TechnicalArchitectureSlide: React.FC = () => (
-  <div>
-    <h2 className="text-3xl font-bold mb-6">Infrastructure robuste et évolutive</h2>
-    <div className="grid grid-cols-3 gap-6">
+  <div className="flex flex-col items-center justify-center h-full w-full">
+    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      Infrastructure robuste et évolutive
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
       <TechCard 
         icon={Cloud}
         title="Architecture cloud"
