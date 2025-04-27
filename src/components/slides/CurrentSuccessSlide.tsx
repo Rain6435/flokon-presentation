@@ -5,7 +5,7 @@ import { SuccessMetricsChart } from '../charts/SuccessMetricsChart';
 export const CurrentSuccessSlide: React.FC = () => (
   <div className="flex flex-col items-center justify-center h-full w-full">
     <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-      Notre succès prouvé dans le secteur privé
+      Le succès prouvé de Flokon dans le secteur privé
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto mb-8">
       {[

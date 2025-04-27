@@ -1,58 +1,61 @@
-import React, { useState } from 'react';
-import { NavigationControls } from './components/shared/NavigationControls';
-import { TitleSlide } from './components/slides/TitleSlide';
-import { ChallengesSlide } from './components/slides/ChallengesSlide';
-import { CurrentSuccessSlide } from './components/slides/CurrentSuccessSlide';
-import { MarketOpportunitySlide } from './components/slides/MarketOpportunitySlide';
-import { PlatformVisionSlide } from './components/slides/PlatformVisionSlide';
-import { FeatureAdaptationSlide } from './components/slides/FeatureAdaptationSlide';
-import { IntegrationBenefitsSlide } from './components/slides/IntegrationBenefitsSlide';
-import { EmergencyResponseSlide } from './components/slides/EmergencyResponseSlide';
-import { TechnicalArchitectureSlide } from './components/slides/TechnicalArchitectureSlide';
-import { RevenueModelSlide } from './components/slides/RevenueModelSlide';
-import { ImplementationPlanSlide } from './components/slides/ImplementationPlanSlide';
-import { CompetitiveAdvantageSlide } from './components/slides/CompetitiveAdvantageSlide';
-import { GatineauCaseStudySlide } from './components/slides/GatineauCaseStudySlide';
-import { CallToActionSlide } from './components/slides/CallToActionSlide';
-import { Slide } from './types';
-import CalculateurROIMunicipal from './components/slides/CalculateurROIMunicipal';
-import { Snowflake } from 'lucide-react';
+import React, { useState } from "react";
+import { NavigationControls } from "./components/shared/NavigationControls";
+import { TitleSlide } from "./components/slides/TitleSlide";
+import { ChallengesSlide } from "./components/slides/ChallengesSlide";
+import { CurrentSuccessSlide } from "./components/slides/CurrentSuccessSlide";
+import { MarketOpportunitySlide } from "./components/slides/MarketOpportunitySlide";
+import { PlatformVisionSlide } from "./components/slides/PlatformVisionSlide";
+import { IntegrationBenefitsSlide } from "./components/slides/IntegrationBenefitsSlide";
+import { EmergencyResponseSlide } from "./components/slides/EmergencyResponseSlide";
+import { TechnicalArchitectureSlide } from "./components/slides/TechnicalArchitectureSlide";
+import { RevenueModelSlide } from "./components/slides/RevenueModelSlide";
+import { ImplementationPlanSlide } from "./components/slides/ImplementationPlanSlide";
+import { BigIdeaSlide } from "./components/slides/BigIdeaSlide";
+import { GatineauCaseStudySlide } from "./components/slides/GatineauCaseStudySlide";
+import { CallToActionSlide } from "./components/slides/CallToActionSlide";
+import { FeatureAdaptationDependenciesSlide } from "./components/slides/FeatureAdaptationDependeciesSlide";
+import { Slide } from "./types";
+import CalculateurROIMunicipal from "./components/slides/CalculateurROIMunicipal";
+import { Snowflake } from "lucide-react";
+import { ChallengesObstaclesSlide } from "./components/slides/ChallengesObstacles";
 
 const App: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('right');
-  
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
+    "right"
+  );
+
   const slides: Slide[] = [
     { component: <TitleSlide /> },
     { component: <ChallengesSlide /> },
-    { component: <CurrentSuccessSlide /> },
     { component: <MarketOpportunitySlide /> },
     { component: <PlatformVisionSlide /> },
-    { component: <FeatureAdaptationSlide /> },
+    { component: <ChallengesObstaclesSlide /> },
     { component: <IntegrationBenefitsSlide /> },
-    { component: <EmergencyResponseSlide /> },
+    { component: <BigIdeaSlide /> },
+    { component: <FeatureAdaptationDependenciesSlide /> },
+    { component: <CurrentSuccessSlide /> },
     { component: <GatineauCaseStudySlide /> },
-    { component: <CalculateurROIMunicipal /> },
-    { component: <div className='flex flex-col gap-2'><CompetitiveAdvantageSlide /><TechnicalArchitectureSlide /></div> },
+    { component: <EmergencyResponseSlide /> },
     { component: <RevenueModelSlide /> },
     { component: <ImplementationPlanSlide /> },
     { component: <CallToActionSlide /> },
   ];
-  
+
   const nextSlide = () => {
     if (currentSlide < slides.length - 1) {
-      setSlideDirection('right');
+      setSlideDirection("right");
       setCurrentSlide(currentSlide + 1);
     }
   };
-  
+
   const prevSlide = () => {
     if (currentSlide > 0) {
-      setSlideDirection('left');
+      setSlideDirection("left");
       setCurrentSlide(currentSlide - 1);
     }
   };
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex flex-col">
       {/* Animated background */}
@@ -61,31 +64,33 @@ const App: React.FC = () => {
         {/* Floating snowflakes animation */}
         <div className="snowflakes-container">
           {[...Array(20)].map((_, i) => (
-            <Snowflake 
-              key={i} 
+            <Snowflake
+              key={i}
               className="snowflake absolute text-blue-200 opacity-30"
               style={{
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 10}s`,
-                fontSize: `${Math.random() * 10 + 10}px`
+                fontSize: `${Math.random() * 10 + 10}px`,
               }}
             />
           ))}
         </div>
       </div>
-      
+
       <div className="flex-1 relative overflow-hidden z-10">
         <div className="max-w-7xl mx-auto p-4 md:p-8">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl min-h-[80vh] relative border border-white/20 flex items-center justify-center">
-            <div 
-              className="slide-container w-full h-full" 
+            <div
+              className="slide-container w-full h-full"
               style={{
-                position: 'absolute',
+                position: "absolute",
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
-                animation: `slideIn${slideDirection === 'right' ? 'FromRight' : 'FromLeft'} 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55)`,
+                animation: `slideIn${
+                  slideDirection === "right" ? "FromRight" : "FromLeft"
+                } 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55)`,
               }}
               key={currentSlide}
             >
@@ -96,14 +101,14 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      <NavigationControls 
+
+      <NavigationControls
         currentSlide={currentSlide}
         totalSlides={slides.length}
         onNext={nextSlide}
         onPrev={prevSlide}
       />
-      
+
       <style>{`
         @keyframes slideInFromRight {
           from {

@@ -17,7 +17,7 @@ export const GatineauCaseStudySlide: React.FC = () => (
           <ul className="space-y-3">
             <li className="flex items-center">
               <Users className="w-5 h-5 mr-3 text-blue-600" />
-              <span>Population: 291 000 habitants</span>
+              <span>Population: 305 000 habitants</span>
             </li>
             <li className="flex items-center">
               <Target className="w-5 h-5 mr-3 text-blue-600" />
@@ -25,7 +25,7 @@ export const GatineauCaseStudySlide: React.FC = () => (
             </li>
             <li className="flex items-center">
               <DollarSign className="w-5 h-5 mr-3 text-blue-600" />
-              <span>Budget: 35M$/an</span>
+              <span>Budget: 25M$/an</span>
             </li>
             <li className="flex items-center">
               <AlertCircle className="w-5 h-5 mr-3 text-blue-600" />
